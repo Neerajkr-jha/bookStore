@@ -68,20 +68,20 @@ const ViewBook = () => {
               />
               {isLoggedIn === true && role === "user" && 
                 <div className="flex lg:flex-col md:flex-col md:justify-start justify-center flex-row md:gap-0 gap-4 lg:mt-0 mt-6">
-                  <button className="bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full text-red-500" onClick={handleFav}>
+                  <button className="cursor-pointer bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full text-red-500" onClick={handleFav}>
                     <FaHeart />{" "}
                   </button>
-                  <button className="bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full md:mt-4 text-cyan-700" onClick={handleCart}>
+                  <button className="cursor-pointer bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full md:mt-4 text-cyan-700" onClick={handleCart}>
                     <FaShoppingCart />
                   </button>
                 </div>
               }
                {isLoggedIn === true && role === "admin" && 
-                <div className="flex lg:flex-col md:flex-col md:justify-start justify-center flex-row md:gap-0 gap-4 lg:mt-0 mt-6">
+                <div className="cursor-pointer flex lg:flex-col md:flex-col md:justify-start justify-center flex-row md:gap-0 gap-4 lg:mt-0 mt-6">
                   <button className="bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full text-red-500" onClick={handleUpdate}>
                     <FaRegEdit />{" "}
                   </button>
-                  <button className="bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full md:mt-4 text-cyan-700"
+                  <button className="cursor-pointer bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full md:mt-4 text-cyan-700"
                   onClick={handleDelete}>
                     <MdDelete />
                   </button>

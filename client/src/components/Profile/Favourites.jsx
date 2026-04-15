@@ -12,21 +12,30 @@ const Favourites = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/api/favourite/get-fav",{headers}
+        "http://localhost:8080/api/favourite/get-fav",
+        { headers },
       );
       setFavouriteBook(response.data.data);
     };
     fetch();
-  });
+  }, [favouriteBook]);
   return (
-      <div className="grid grid-cols-3 gap-4 px-4">
+    <>
+      {favouriteBook && favouriteBook.length === 0 && (
+        <div className="flex items-center justify-center text-xl md:text-3xl font-semibold h-full flex-col gap-7">
+          <img src="./NotFound.png" alt="empty" className="h-[40vh] rounded-lg" />
+          No Favourite book Found
+        </div>
+      )}
+      <div className="grid giid-col-1 md:grid-cols-3 gap-4 px-4 md:mt-0 mt-6">
         {favouriteBook &&
           favouriteBook.map((item, i) => (
             <div key={i}>
-              <Card data={item} />
+              <Card data={item} favourite={true} />
             </div>
           ))}
       </div>
+    </>
   );
 };
 

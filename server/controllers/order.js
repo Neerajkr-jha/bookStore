@@ -5,13 +5,13 @@ const placeOrder = async (req, res) => {
     try {
         const { id } = req.headers
         const { order } = req.body;
-        for (orderData of order) {
-            const newOrder = new Order({ user: id, book: orderData.book._id })
+        for (const orderData of order) {
+            const newOrder = new Order({ user: id, book: orderData._id })
             const orderDataFromDb = await newOrder.save();
 
             //saving order in user model
             await User.findByIdAndUpdate(id, { $push: { order: orderDataFromDb._id } })
-            //remving order from cart
+            //removing order from cart
             await User.findByIdAndUpdate(id, { $pull: { cart: orderData._id } })
         }
         return res.json({ status: "success", message: "Order placed successfully" })

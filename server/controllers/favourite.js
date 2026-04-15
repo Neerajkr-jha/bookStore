@@ -25,7 +25,7 @@ const removeFromFav = async (req, res) => {
             return res.status(400).json({ message: "Error in removing to favourites" });
         }
         const userData = await User.findById(id);
-        const isBookFav = await userData.favourites.includes(bookid);
+        const isBookFav = userData.favourites.includes(bookid);
         if (isBookFav) {
             await User.findByIdAndUpdate(id, { $pull:{ favourites: bookid }});
         }
