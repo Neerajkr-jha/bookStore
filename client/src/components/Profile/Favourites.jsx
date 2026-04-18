@@ -27,7 +27,7 @@ const Favourites = () => {
           No Favourite book Found
         </div>
       )}
-      <div className="grid giid-col-1 md:grid-cols-3 gap-4 px-4 md:mt-0 mt-6">
+      <div className="grid giid-col-1 md:grid-cols-3 gap-4 md:px-4 px-1 md:mt-0 mt-6">
         {favouriteBook &&
           favouriteBook.map((item, i) => (
             <div key={i}>

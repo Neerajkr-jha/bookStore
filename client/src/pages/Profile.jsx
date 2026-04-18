@@ -4,6 +4,7 @@ import Sidebar from "../components/Profile/Sidebar";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import {Loader} from "../components/Loader/Loader.jsx";
+import MobileNav from "../components/Profile/MobileNav.jsx";
 
 const Profile = () => {
   const [profile, setProfile] = useState();
@@ -34,6 +35,7 @@ const Profile = () => {
           <>
             <div className="w-full md:w-1/6 h-full">
               <Sidebar data={profile} />
+              <MobileNav/>
             </div>
             <div className="w-full md:w-5/6">
               <Outlet />

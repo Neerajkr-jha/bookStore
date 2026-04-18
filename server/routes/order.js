@@ -5,7 +5,7 @@ import authenticateToken from "../auth/userAuth.js";
 const orderRouter=express.Router();
 
 orderRouter.post("/place-order",authenticateToken,placeOrder);
-orderRouter.post("/get-order-history",authenticateToken,orderHistory);
+orderRouter.get("/get-order-history",authenticateToken,orderHistory);
 orderRouter.post("/get-all-orders",authenticateToken,allOrders);
 orderRouter.post("/update-status/:id",authenticateToken,updateStatus);
 

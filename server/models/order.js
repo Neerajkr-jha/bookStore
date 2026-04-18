@@ -5,9 +5,9 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "Book",
     },
-    book: {
+    Book: {
         type: mongoose.Types.ObjectId,
-        ref: "book",
+        ref: "Book",
     },
     status:{
         type:String,

@@ -6,7 +6,7 @@ const placeOrder = async (req, res) => {
         const { id } = req.headers
         const { order } = req.body;
         for (const orderData of order) {
-            const newOrder = new Order({ user: id, book: orderData._id })
+            const newOrder = new Order({ user: id, Book: orderData._id })
             const orderDataFromDb = await newOrder.save();
 
             //saving order in user model
@@ -22,9 +22,9 @@ const placeOrder = async (req, res) => {
 const orderHistory = async (req, res) => {
     try {
         const { id } = req.headers
-        const user=await User.findById(id).populate({path:"orders",populate:{path:'Book'}})
+        const user=await User.findById(id).populate({path:"order",populate:{path:'Book'}})
 
-        const orderData=user.orders.reverse();
+        const orderData=user.order.reverse();
 
         return res.json({ status: "success", data:orderData })
     } catch (error) {
