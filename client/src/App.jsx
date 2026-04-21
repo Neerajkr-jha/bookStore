@@ -14,10 +14,13 @@ import { authActions } from "./app/authSlice";
 import Favourites from "./components/Profile/Favourites";
 import UserOrderHistory from "./components/Profile/UserOrderHistory";
 import Settings from "./components/Profile/Settings";
+import AllOrders from "./components/Profile/AllOrders";
+import AddBook from "./components/Profile/AddBook";
+import UpdateBook from "./components/Profile/UpdateBook";
 
 const App = () => {
   //when we refesh webpage useeffect render data
-  const role = useSelector((state) => state.auth);
+  const role = useSelector((state) => state.auth.role);
   const dispatch = useDispatch();
   useEffect(() => {
     if (
@@ -39,12 +42,20 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />}>
-          <Route index element={<Favourites />} />
+          {role === "user" ? (
+            <Route index element={<Favourites />} />
+          ) : (
+            <Route index element={<AllOrders />} />
+          )}
+          {role === "admin" && (
+            <Route path="/profile/add-book" element={<AddBook />} />
+          )}
           <Route path="/profile/orderHistory" element={<UserOrderHistory />} />
           <Route path="/profile/settings" element={<Settings />} />
         </Route>
         <Route path="/all-books" element={<AllBooks />} />
         <Route path="/view-book/:id" element={<ViewBook />} />
+        <Route path="/update-book/:id" element={<UpdateBook />} />
       </Routes>
       <Footer />
     </div>

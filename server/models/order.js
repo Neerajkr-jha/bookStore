@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const orderSchema = new mongoose.Schema({
     user: {
         type: mongoose.Types.ObjectId,
-        ref: "Book",
+        ref: "User",
     },
     Book: {
         type: mongoose.Types.ObjectId,
@@ -12,7 +12,7 @@ const orderSchema = new mongoose.Schema({
     status:{
         type:String,
         default:"Order Placed",
-        enum:["Order Placed","Out if delivery","Cancelled","Delivered"]
+        enum:["Order Placed","out for delivery","canceled","Delivered"]
     }
 },{timestamps:true})
 

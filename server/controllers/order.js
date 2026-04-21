@@ -35,7 +35,7 @@ const orderHistory = async (req, res) => {
 //admin
 const allOrders = async (req, res) => {
     try {
-        const userData=await User.find().populate({path:'Book'}).populate({path:'User'}).sort({createdAt:-1})
+        const userData=await Order.find().populate({path:'Book'}).populate({path:'user'}).sort({createdAt:-1})
         return res.json({ status: "success", data:userData })
     } catch (error) {
         return res.status(500).json({ message: "Internal server error" })
@@ -44,7 +44,7 @@ const allOrders = async (req, res) => {
 const updateStatus = async (req, res) => {
     try {
         const {id}=req.params
-        await Order.findById(id,{status:req.body.status});
+        await Order.findByIdAndUpdate(id,{status:req.body.status});
         return res.json({ status: "success", message:"Status updated successfully" })
     } catch (error) {
         return res.status(500).json({ message: "Internal server error" })

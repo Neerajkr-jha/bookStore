@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Loader } from "../Loader/Loader";
 import { LuLanguages } from "react-icons/lu";
 import { FaHeart } from "react-icons/fa";
@@ -15,6 +15,9 @@ const ViewBook = () => {
   const role = useSelector((state) => state.auth.role);
   const { id } = useParams();
   const [data, setData] = useState(null);
+
+  const navigate=useNavigate();
+
   const headers = {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -38,20 +41,12 @@ const ViewBook = () => {
     toast.success(response.data.message)
   }
 
-  const handleUpdate=async ()=>{
-    const response=await axios.put("http://localhost:8080/api/books/update-book",{},{
-    authorization: `Bearer ${localStorage.getItem("token")}`,
-    bookid:id,
-  });
-    toast.success(response.data.message)
-  }
-
   const handleDelete=async ()=>{
-    const response=await axios.delete("http://localhost:8080/api/books/delete-book",{},{
-    authorization: `Bearer ${localStorage.getItem("token")}`,
-    bookid:id,
-  });
+    const response=await axios.delete("http://localhost:8080/api/books/delete-book",{headers});
     toast.success(response.data.message)
+    setTimeout(() => {
+       navigate("/all-books")
+    }, 500);
   }
 
   return (
@@ -78,9 +73,9 @@ const ViewBook = () => {
               }
                {isLoggedIn === true && role === "admin" && 
                 <div className="cursor-pointer flex lg:flex-col md:flex-col md:justify-start justify-center flex-row md:gap-0 gap-4 lg:mt-0 mt-6">
-                  <button className="bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full text-red-500" onClick={handleUpdate}>
+                  <Link to={`/update-book/${id}`} className="bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full text-red-500">
                     <FaRegEdit />{" "}
-                  </button>
+                  </Link>
                   <button className="cursor-pointer bg-white p-4 md:p-2 text-4xl md:text-3xl rounded-full md:mt-4 text-cyan-700"
                   onClick={handleDelete}>
                     <MdDelete />
