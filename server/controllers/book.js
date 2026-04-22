@@ -75,7 +75,7 @@ const getAllBooks = async (req, res) => {
 
 const getRecentBooks = async (req, res) => {
     try {
-        const books = await Book.find().sort({ createdAt: -1 }).limit(4)
+        const books = await Book.find().sort({ createdAt: -1 }).limit(5)
         return res.status(200).json({ status: "success", data: books })
     } catch (error) {
         return res.status(500).json({ message: "Internal Server error" });

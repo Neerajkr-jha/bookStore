@@ -4,13 +4,11 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { authActions } from "../app/authSlice";
 import { useDispatch } from "react-redux";
+import { useDarkMode } from "../components/DarkMode/DarkModeContext";
 
 const Login = () => {
-  const [Values, setValues] = useState({
-    username: "",
-    password: "",
-  });
-
+  const { isDark } = useDarkMode();
+  const [Values, setValues] = useState({ username: "", password: "" });
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -34,76 +32,75 @@ const Login = () => {
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role);
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        setTimeout(() => { navigate("/"); }, 1000);
       }
     } catch (error) {
       toast.error(error.response.data.message || "Something went wrong");
     }
   };
 
+  const inputClass = `w-full mt-2 px-3 py-2 rounded-lg border focus:outline-none transition-colors duration-200
+    ${isDark
+      ? "bg-gray-900 text-gray-100 border-gray-700 placeholder-gray-500"
+      : "bg-slate-50 text-slate-800 border-slate-300 placeholder-slate-400"
+    }`;
+
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-      <div
-        className="w-full max-w-md bg-gray-800 border border-gray-700 rounded p-8"
+    <div className={`min-h-screen flex items-center justify-center px-4 ${isDark ? "bg-gray-900" : "bg-slate-50"}`}>
+      <div className={`w-full max-w-md border rounded p-8
+        ${isDark ? "bg-gray-800 border-gray-700" : "bg-white border-slate-200 shadow-sm"}`}
       >
-   
-        <h1 className="text-2xl font-semibold text-white text-center">
+        <h1 className={`text-2xl font-semibold text-center ${isDark ? "text-white" : "text-slate-800"}`}>
           Welcome Back
         </h1>
-        <p className="text-gray-400 text-center mt-1">Login to your account</p>
+        <p className={`text-center mt-1 ${isDark ? "text-gray-400" : "text-slate-500"}`}>
+          Login to your account
+        </p>
 
         <div className="mt-6">
-      
           <div>
-            <label className="text-gray-400 text-sm">Username</label>
+            <label className={`text-sm ${isDark ? "text-gray-400" : "text-slate-600"}`}>Username</label>
             <input
               value={Values.username}
               onChange={handleChnage}
               type="text"
               name="username"
               placeholder="Enter username"
-              className="w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none"
+              className={inputClass}
               required
             />
           </div>
           <div className="mt-4">
-            <label className="text-gray-400 text-sm">Password</label>
+            <label className={`text-sm ${isDark ? "text-gray-400" : "text-slate-600"}`}>Password</label>
             <input
               value={Values.password}
               onChange={handleChnage}
-              type="text"
+              type="password"
               name="password"
               placeholder="Enter password"
-              className="w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none"
+              className={inputClass}
               required
             />
           </div>
           <div className="mt-6">
             <button
-              className="w-full py-2 rounded-lg font-semibold text-white bg-gray-500 hover:cursor-pointer transition-all duration-300"
+              className="w-full py-2 rounded-lg font-semibold text-white bg-violet-500 hover:bg-violet-600 transition-all duration-300"
               onClick={handleSubmit}
             >
               Login
             </button>
           </div>
 
-          <p className="text-center text-gray-500 mt-6">or</p>
+          <p className={`text-center mt-6 ${isDark ? "text-gray-500" : "text-slate-400"}`}>or</p>
 
-        
-          <p className="text-center text-gray-400 mt-4 text-sm">
+          <p className={`text-center mt-4 text-sm ${isDark ? "text-gray-400" : "text-slate-500"}`}>
             Don't have an account?{" "}
-            <Link
-              className="text-purple-400 hover:text-purple-300 transition"
-              to="/signup"
-            >
+            <Link className="text-purple-400 hover:text-purple-300 transition" to="/signup">
               Sign Up
             </Link>
           </p>
         </div>
       </div>
-
       <Toaster position="top-center" />
     </div>
   );
