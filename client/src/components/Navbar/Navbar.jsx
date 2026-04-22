@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { TiThMenu } from "react-icons/ti";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
@@ -30,6 +30,25 @@ const Navbar = () => {
       link: "/profile",
     },
   ];
+
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowNavbar(false); // scrolling down
+      } else {
+        setShowNavbar(true); // scrolling up
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
   if (isLoggedIn === false) {
@@ -38,21 +57,17 @@ const Navbar = () => {
   if (isLoggedIn === true && role === "admin") {
     links.splice(4, 1);
   }
-  if (isLoggedIn === true && role === "admin") {
+  if (isLoggedIn === true && role === "user") {
     links.splice(5, 1);
   }
   const [mobileNav, setMobileNav] = useState("hidden");
 
   return (
     <>
-      <nav className="z-50 bg-zinc-800 relative text-white px-8 py-4 flex items-center justify-between">
+      <nav className={`z-50 bg-gray-800 fixed top-0 left-0 w-full text-gray-300 px-8 py-3 flex items-center justify-between rounded-lg border-b border-gray-700 ${showNavbar ? "translate-y-0" : "-translate-y-full"} transition-transform duration-300 `}>
         <Link to="/" className="flex items-center">
-          <img
-            className="h-10 me-4"
-            src="https://i.ibb.co/vxzxwB16/book-shop-icon-design-vector.jpg"
-            alt="logo"
-          />
-          <h1 className="font-semibold text-2xl">Bookify</h1>
+          <img className="h-10 me-4" src="/favicon.svg" alt="logo" />
+          <h1 className="font-mono text-2xl">Bookify</h1>
         </Link>
         <div className="nav-links-bookStore block md:flex items-center gap-4">
           <div className="hidden md:flex gap-4">
@@ -61,7 +76,7 @@ const Navbar = () => {
                 {item.title === "Profile" || item.title === "Admin" ? (
                   <Link
                     to={item.link}
-                    className="border border-blue-500 px-4 py-1 rounded hover:bg-white hover:text-black hover:font-sans transition-all duration-300"
+                    className="border border-gray-700 px-4 py-1 rounded hover:bg-white hover:text-purple-600 hover:font-sans transition-all duration-300"
                     key={i}
                   >
                     {item.title}
@@ -69,7 +84,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to={item.link}
-                    className="font-mono hover:text-blue-500 transition-all duration-400"
+                    className="text-lg font-sans hover:text-purple-400 hover:scale-110 transition-all duration-400"
                     key={i}
                   >
                     {item.title}{" "}
@@ -79,16 +94,21 @@ const Navbar = () => {
             ))}
           </div>
           {isLoggedIn === false && (
-            <div className="hidden md:flex items-center gap-4 font-mono">
+            <div className="hidden md:flex items-center gap-4 font-sans">
               <Link
                 to="/login"
-                className="border border-blue-500 px-4 py-1 rounded hover:bg-white hover:text-black transition-all duration-300"
+                className="border border-gray-700 text-gray-300 px-4 py-1.5 rounded-lg 
+               hover:bg-gray-700 hover:text-white 
+               transition-all duration-300"
               >
                 Login
               </Link>
+
               <Link
                 to="/signup"
-                className="bg-blue-500 border border-white px-4 py-1 rounded hover:bg-white hover:text-black transition-all duration-300"
+                className="bg-purple-500 text-white px-4 py-1.5 rounded 
+               hover:bg-purple-600 
+               transition-all duration-300 shadow-md hover:shadow-purple-500/20"
               >
                 Sign up
               </Link>

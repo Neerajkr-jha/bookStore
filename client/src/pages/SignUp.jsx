@@ -33,37 +33,37 @@ const SignUp = () => {
     }
   }
   return (
-    <div className='h-screen bg-zinc-900 px-6 md:px-12 py-8 flex items-center justify-center'>
-      <div className='bg-zinc-800 rounded-lg px-8 py-5 w-full md:w-3/6 lg:w-2/6'>
-        <p className='text-zinc-200 text-xl'>Sign Up</p>
+    <div className='min-h-screen bg-gray-900 flex items-center justify-center px-4'>
+      <div className='bg-gray-800 rounded border-gray-700 px-8 py-5 w-full md:w-3/6 lg:w-2/6'>
+        <p className='text-gray-400 text-2xl text-center'>Sign Up</p>
         <div className='mt-4'>
           <div>
-            <label htmlFor="username" className='text-zinc-400'>Username</label>
-            <input value={Values.username} onChange={handleChnage} type="text" name="username" placeholder="Username" className='w-full mt-2 outline-none bg-zinc-900 text-zinc-100 p-2' required/>
+            <label htmlFor="username" className='text-gray-400'>Username</label>
+            <input value={Values.username} onChange={handleChnage} type="text" name="username" placeholder="Username" className="w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none" required/>
           </div>
           <div className='mt-4'>
-            <label htmlFor="email" className='text-zinc-400'>Emial</label>
-            <input value={Values.email} onChange={handleChnage} type="email" name="email" placeholder="Email" className='w-full mt-2 outline-none bg-zinc-900 text-zinc-100 p-2' required/>
+            <label htmlFor="email" className='text-gray-400'>Emial</label>
+            <input value={Values.email} onChange={handleChnage} type="email" name="email" placeholder="Email" className='w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none' required/>
           </div>
           <div className='mt-4'>
-            <label htmlFor="password" className='text-zinc-400'>Password</label>
-            <input value={Values.password} onChange={handleChnage} type="password" name="password" placeholder="password" className='w-full mt-2 outline-none bg-zinc-900 text-zinc-100 p-2'required />
+            <label htmlFor="password" className='text-gray-400'>Password</label>
+            <input value={Values.password} onChange={handleChnage} type="password" name="password" placeholder="Password" className='w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none'required />
           </div>
           <div className='mt-4'>
-            <label htmlFor="address" className='text-zinc-400'>Address</label>
-            <textarea value={Values.address} onChange={handleChnage} rows={5} name="address" className='w-full mt-2 outline-none bg-zinc-900 text-zinc-100 p-2' required></textarea>
+            <label htmlFor="address" className='text-gray-400'>Address</label>
+            <textarea value={Values.address} onChange={handleChnage} rows={5} name="address" className='w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none' required></textarea>
           </div>
           <div className='mt-4'>
-            <button className='py-2 w-full bg-blue-500 text-white font-semibold rounded hover:bg-blue-600' onClick={handleSubmit}>
+            <button className="w-full py-2 rounded-lg font-semibold text-white bg-gray-500 hover:cursor-pointer transition-all duration-300" onClick={handleSubmit}>
               Sign Up
             </button>
           </div>
-          <p className='text-center text-zinc-200 font-medium text-2xl mt-4'>
+          <p className='text-center text-gray-500 mt-4'>
             or
           </p>
-          <p className='text-center text-zinc-200 font-light mt-4'>
+          <p className='text-center text-gray-400 text-sm mt-4'>
             Already have an account ? &nbsp;
-            <Link className='hover:text-blue-500' to="/login">
+            <Link className='text-purple-400 hover:text-purple-300 transition' to="/login">
             <u>Login</u>
             </Link>
           </p>

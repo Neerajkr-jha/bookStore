@@ -50,11 +50,11 @@ const AllOrders = () => {
         </div>
       )}
       {allOrders && allOrders.length > 0 && (
-        <div className="h-full p-0 md:p-0 md:px-4 text-zinc-100">
-          <h1 className="text-3xl text-center md:text-start md:text-5xl font-semibold text-zinc-100 mb-8">
+        <div className="h-full p-0 md:p-0 md:px-4 text-gray-100">
+          <h1 className="text-3xl text-center md:text-start md:text-5xl font-semibold text-gray-100 mb-8">
             Orders
           </h1>
-          <div className="mt-4 bg-zinc-800 rounded py-2 px-4 flex gap-2">
+          <div className="mt-4 bg-gray-800 rounded py-2 px-4 flex gap-2">
             <div className="w-[3%]">
               <h1 className="text-center">Sr.</h1>
             </div>
@@ -78,7 +78,7 @@ const AllOrders = () => {
           </div>
           {allOrders &&
             allOrders.map((item, i) => (
-              <div className="bg-zinc-800 w-full rounded flex gap-2 py-2 px-4 hover:bg-zinc-900 hover:cursor-pointer transition-all">
+              <div className="bg-gray-800 w-full rounded flex gap-2 py-2 px-4 hover:bg-gray-900 hover:cursor-pointer transition-all">
                 <div className="w-[3%]">
                   <h1 className="text-center">{i + 1}</h1>
                 </div>

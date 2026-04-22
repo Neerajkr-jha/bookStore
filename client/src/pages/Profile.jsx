@@ -25,7 +25,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="bg-zinc-900 flex min-h-screen px-2 md:pl-10 flex-col md:flex-row py-4 md:py-8 text-white">
+    <div className="bg-gray-900 flex min-h-screen px-2 md:pl-10 flex-col md:flex-row py-4 md:py-8 text-white">
       <>
         {!profile && 
         <div className="flex items-center justify-center w-full h-full">

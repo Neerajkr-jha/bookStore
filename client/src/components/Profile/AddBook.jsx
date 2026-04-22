@@ -54,18 +54,18 @@ const AddBook = () => {
   };
   return (
     <div className="h-full p-0 md:p-4">
-      <h1 className="text-3xl md:text-5xl text-zinc-300 mb-8 font-semibold">
+      <h1 className="text-3xl md:text-5xl text-gray-300 mb-8 font-semibold">
         Add Book
       </h1>
-      <div className="bg-zinc-800 rounded p-4">
+      <div className="bg-gray-800 rounded p-4">
         <div>
-          <label htmlFor="" className="text-zinc-400">
+          <label htmlFor="" className="text-gray-400">
             Image
           </label>
           <input
             type="text"
             name="url"
-            className="w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none"
+            className="w-full mt-2 bg-gray-900 text-gray-100 p-2 outline-none"
             placeholder="URL of image"
             required
             value={data.url}
@@ -73,11 +73,11 @@ const AddBook = () => {
           />
         </div>
         <div className="mt-4">
-          <label htmlFor="" className="text-zinc-400">
+          <label htmlFor="" className="text-gray-400">
             Title
           </label>
           <input
-            className="w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none"
+            className="w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none"
             type="text"
             name="title"
             placeholder="Title of book"
@@ -87,11 +87,11 @@ const AddBook = () => {
           />
         </div>
         <div className="mt-4">
-          <label htmlFor="" className="text-zinc-400">
+          <label htmlFor="" className="text-gray-400">
             Author
           </label>
           <input
-            className="w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none"
+            className="w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none"
             type="text"
             name="author"
             placeholder="Author of book"
@@ -101,11 +101,11 @@ const AddBook = () => {
           />
         </div>
         <div className="mt-4">
-          <label htmlFor="" className="text-zinc-400">
+          <label htmlFor="" className="text-gray-400">
             Language
           </label>
           <input
-            className="w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none"
+            className="w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none"
             type="text"
             name="language"
             placeholder="Language of book"
@@ -115,11 +115,11 @@ const AddBook = () => {
           />
         </div>
         <div className="mt-4">
-          <label htmlFor="" className="text-zinc-400">
+          <label htmlFor="" className="text-gray-400">
             Price
           </label>
           <input
-            className="w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none"
+            className="w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none"
             type="text"
             name="price"
             placeholder="Price of book"
@@ -129,11 +129,11 @@ const AddBook = () => {
           />
         </div>
         <div className="mt-4">
-          <label htmlFor="" className="text-zinc-400">
+          <label htmlFor="" className="text-gray-400">
             Description
           </label>
           <textarea
-            className="w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none"
+            className="w-full mt-2 px-3 py-2 rounded-lg bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none"
             type="text"
             name="desc"
             rows="5"
@@ -145,7 +145,7 @@ const AddBook = () => {
         </div>
 
         <button
-          className=" mt-4 px-3 bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 transition-all"
+          className="mt-6 w-full md:w-auto px-6 py-2 rounded-lg bg-violet-500 hover:bg-violet-600 text-white font-semibold transition-all duration-300"
           onClick={handleSubmit}
         >
           Add Book

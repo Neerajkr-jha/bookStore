@@ -15,7 +15,8 @@ const AllBooks = () => {
     fetch();
   }, []);
   return (
-    <div className="bg-zinc-900 px-12 py-8 h-auto">
+    <div className="bg-gray-900 px-12 py-8 h-auto">
+      <h1 className="text-5xl text-gray-400 font-serif italic text-center py-4 mb-4">Explore Books</h1>
       {!data && (
         <div>
           <Loader />

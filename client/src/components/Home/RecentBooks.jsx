@@ -18,9 +18,9 @@ const RecentBooks = () => {
 
   return (
     <div className="mt-8 px-2">
-      <h4 className="text-3xl text-yellow-100">Recently added books</h4>
+      <h4 className="text-3xl text-gray-100 ">Recently Added Books</h4>
       {!data && (
-        <div className="flex items-center justify-center my-6">
+        <div className="flex items-center justify-center my-6 font-serif">
           <Loader />
         </div>
       )}

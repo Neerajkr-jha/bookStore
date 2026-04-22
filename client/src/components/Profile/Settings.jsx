@@ -41,20 +41,20 @@ const Settings = () => {
         </div>
       )}
       {profileData && (
-        <div className="w-full p-4 md:p-4 text-zinc-100">
-          <h1 className="text-3xl md:text-5xl font-semibold text-zinc-500 mb-8">
+        <div className="w-full p-4 md:p-4 text-gray-100">
+          <h1 className="text-3xl md:text-5xl font-semibold text-gray-200 mb-8">
             Settings
           </h1>
           <div className="flex gap-12 md:flex-row flex-col">
             <div>
               <label>Username</label>
-              <p className="p-2 rounded bg-zinc-800 font-semibold w-fit">
+              <p className="p-2 rounded bg-gray-800 font-semibold w-fit">
                 {profileData.username}
               </p>
             </div>
             <div>
               <label>Email</label>
-              <p className="p-2 rounded bg-zinc-800 font-semibold w-fit">
+              <p className="p-2 rounded bg-gray-800 font-semibold w-fit">
                 {profileData.email}
               </p>
             </div>
@@ -62,7 +62,7 @@ const Settings = () => {
           <div className="mt-4 flex flex-col">
             <label>Address</label>
             <textarea
-              className="p-2 rounded bg-zinc-800 mt-2 font-semibold"
+              className="p-2 rounded bg-gray-800 mt-2 font-semibold outline-none"
               rows="7"
               name="address"
               placeholder="Address"
@@ -72,10 +72,10 @@ const Settings = () => {
           </div>
           <div className="mt-4 flex md:justify-end justify-center">
             <button
-              className="cursor-pointer bg-yellow-500 text-zinc-900 font-semibold px-3 py-2 rounded hover:bg-yellow-400"
+              className="cursor-pointer bg-violet-500 text-gray-100 font-semibold px-3 py-2 rounded hover:bg-violet-400"
               onClick={handleSubmit}
             >
-              Update
+              Update address
             </button>
           </div>
         </div>

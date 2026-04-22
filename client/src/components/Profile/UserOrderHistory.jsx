@@ -28,21 +28,21 @@ const UserOrderHistory = () => {
         </div>
       )}
       {orderHistory && orderHistory.length === 0 && (
-        <div className="h-[80vh] p-4 text-zinc-100">
+        <div className="h-[80vh] p-4 text-gray-100">
           <div className="h-full flex flex-col items-center justify-center">
             <img src="/NoOrders.png" alt="orders" className="h-[40vh] mb-4" />
-            <h1 className="font-mono text-3xl mb-8 text-zinc-200">
+            <h1 className="font-mono text-3xl mb-8 text-gray-200">
               No order history
             </h1>
           </div>
         </div>
       )}
       {orderHistory && orderHistory.length > 0 && (
-        <div className="h-full p-0 md:p-0 text-zinc-100">
-          <h1 className="text-3xl text-center md:text-start md:text-5xl font-semibold text-zinc-300 mb-8">
+        <div className="h-full p-0 md:p-0 text-gray-100">
+          <h1 className="text-3xl text-center md:text-start md:text-5xl font-semibold text-gray-300 mb-8">
             Your Order History
           </h1>
-          <div className="mt-4 bg-zinc-800 rounded py-2 px-4 flex gap-4">
+          <div className="mt-4 bg-gray-800 rounded py-2 px-4 flex gap-4">
             <div className="w-[3%]">
               <h1>Sr.</h1>
             </div>
@@ -63,14 +63,14 @@ const UserOrderHistory = () => {
             </div>
           </div>
           {orderHistory.map((order, i) => (
-            <div className="bg-zinc-800 rounded py-2 px-4 flex gap-4 hover:bg-zinc-900 hover:cursor-pointer">
+            <div className="bg-gray-800 rounded py-2 px-4 flex gap-4 hover:bg-gray-900 hover:cursor-pointer">
               <div className="w-[3%]">
                 <h1>{i + 1}</h1>
               </div>
               <div className="w-[22%]">
                 <Link
                   to={`/view-book-details/${order.Book._id}`}
-                  className="hover:text-blue-300"
+                  className="hover:text-violet-300"
                 >
                   {order.Book.title}
                 </Link>
@@ -93,7 +93,7 @@ const UserOrderHistory = () => {
                 </h2>
               </div>
               <div className="md:w-[5%] hidden md:block w-0">
-                <h2 className="text-sm text-zinc-400">COD</h2>
+                <h2 className="text-sm text-gray-400">COD</h2>
               </div>
             </div>
           ))}

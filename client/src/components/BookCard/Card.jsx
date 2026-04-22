@@ -1,46 +1,56 @@
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
-// import toast, { Toaster } from "react-hot-toast"; 
 
 const Card = ({ data, favourite }) => {
-   const headers = {
+  const headers = {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
-    bookid:data._id
+    bookid: data._id,
   };
+
   const handleRemoveBook = async () => {
     const response = await axios.put(
-      "http://localhost:8080/api/favourite/remove-from-fav",{},{ headers },
+      "http://localhost:8080/api/favourite/remove-from-fav",
+      {},
+      { headers },
     );
-    alert(response.data.message)
+    alert(response.data.message);
   };
+
   return (
-    <div className="bg-zinc-800 rounded-xl p-4 flex flex-col ">
-      <Link to={`/view-book/${data._id}`}>
+    <div
+      className="bg-gray-800 rounded-lg p-4 flex flex-col border border-gray-700 hover:shadow-lg transition-all duration-300"
+    >
+      <Link to={`/view-book/${data._id}`} className="group">
         <div>
-          <div className="bg-zinc-900 flex items-center justify-center rounded-xl mb-3 overflow-hidden">
+          <div
+            className="bg-gray-900 flex items-center justify-center rounded-xl mb-4 overflow-hidden"
+          >
             <img
               src={data.url}
               alt="Book"
-              className="h-[50vh] w-full rounded-xl"
-            />
+              className="h-[45vh] w-full object-fill rounded-xl transition duration-300"/>
           </div>
-          <h1 className="font-mono text-2xl">{data.title}</h1>
-          <p>{data.author}</p>
-          <p>Rs {data.price}</p>
-          <p></p>
+
+          <h1 className="text-xl font-semibold text-white transition">
+            {data.title}
+          </h1>
+
+          <p className="text-gray-400 mt-1">{data.author}</p>
+
+          <p className="text-gray-100 font-semibold mt-2">₹ {data.price}</p>
         </div>
       </Link>
+
       {favourite && (
         <button
-          className="bg-yellow-50 px-4 py-2 mt-4 rounded border border-yellow-500 text-amber-700 font-semibold cursor-pointer"
+          className="mt-4 px-4 py-2 rounded-lg bg-gray-600 text-white font-medium hover:bg-gray-700 transition-all duration-300 shadow-md "
           onClick={handleRemoveBook}
         >
           Remove from Favourites
         </button>
       )}
-      {/* <Toaster position="top-center" /> */}
     </div>
   );
 };

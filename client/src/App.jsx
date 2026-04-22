@@ -17,6 +17,7 @@ import Settings from "./components/Profile/Settings";
 import AllOrders from "./components/Profile/AllOrders";
 import AddBook from "./components/Profile/AddBook";
 import UpdateBook from "./components/Profile/UpdateBook";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   //when we refesh webpage useeffect render data
@@ -34,29 +35,35 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gray-900 text-gray-50">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/profile" element={<Profile />}>
-          {role === "user" ? (
-            <Route index element={<Favourites />} />
-          ) : (
-            <Route index element={<AllOrders />} />
-          )}
-          {role === "admin" && (
-            <Route path="/profile/add-book" element={<AddBook />} />
-          )}
-          <Route path="/profile/orderHistory" element={<UserOrderHistory />} />
-          <Route path="/profile/settings" element={<Settings />} />
-        </Route>
-        <Route path="/all-books" element={<AllBooks />} />
-        <Route path="/view-book/:id" element={<ViewBook />} />
-        <Route path="/update-book/:id" element={<UpdateBook />} />
-      </Routes>
+      <div className="pt-16">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/profile" element={<Profile />}>
+            {role === "user" ? (
+              <Route index element={<Favourites />} />
+            ) : (
+              <Route index element={<AllOrders />} />
+            )}
+            {role === "admin" && (
+              <Route path="/profile/add-book" element={<AddBook />} />
+            )}
+            <Route
+              path="/profile/orderHistory"
+              element={<UserOrderHistory />}
+            />
+            <Route path="/profile/settings" element={<Settings />} />
+          </Route>
+          <Route path="/all-books" element={<AllBooks />} />
+          <Route path="/view-book/:id" element={<ViewBook />} />
+          <Route path="/update-book/:id" element={<UpdateBook />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

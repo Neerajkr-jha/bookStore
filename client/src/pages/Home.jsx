@@ -4,7 +4,7 @@ import RecentBooks from '../components/Home/RecentBooks'
 
 const Home = () => {
   return (
-    <div className='text-white bg-zinc-900 px-8 py-10'>
+    <div className='text-gray-50 bg-gray-900 px-8 py-10'>
         <Hero/>
         <RecentBooks/>
     </div>
