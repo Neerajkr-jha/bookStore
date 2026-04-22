@@ -15,6 +15,13 @@ const PORT=process.env.PORT || 8080;
 app.use(cors())
 app.use(express.json())
 
+app.get("/", (req, res) => {
+  res.json({
+    status: "success",
+    message: "Bookify API is running",
+  });
+});
+
 app.use("/api/users",userRouter);
 app.use("/api/books",bookRouter);
 app.use("/api/favourite",favRouter);
