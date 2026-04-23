@@ -27,7 +27,7 @@ const ViewBook = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://localhost:8080/api/books/get-book-by-id/${id}`
+        `https://bookify-bwff.onrender.com/api/books/get-book-by-id/${id}`
       );
       setData(response.data.data);
     };
@@ -36,7 +36,7 @@ const ViewBook = () => {
 
   const handleFav = async () => {
     const response = await axios.put(
-      "http://localhost:8080/api/favourite/add-to-fav",
+      "https://bookify-bwff.onrender.com/api/favourite/add-to-fav",
       {},
       { headers }
     );
@@ -45,7 +45,7 @@ const ViewBook = () => {
 
   const handleCart = async () => {
     const response = await axios.put(
-      "http://localhost:8080/api/cart/add-to-cart",
+      "https://bookify-bwff.onrender.com/api/cart/add-to-cart",
       {},
       { headers }
     );
@@ -54,7 +54,7 @@ const ViewBook = () => {
 
   const handleDelete = async () => {
     const response = await axios.delete(
-      "http://localhost:8080/api/books/delete-book",
+      "https://bookify-bwff.onrender.com/api/books/delete-book",
       { headers }
     );
     toast.success(response.data.message);

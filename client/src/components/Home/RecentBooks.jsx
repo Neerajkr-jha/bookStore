@@ -12,7 +12,7 @@ const RecentBooks = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/api/books/get-recent-books",
+        "https://bookify-bwff.onrender.com/api/books/get-recent-books",
       );
       setData(response.data.data);
     };

@@ -18,7 +18,7 @@ const Profile = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/api/users/user-info",
+        "https://bookify-bwff.onrender.com/api/users/user-info",
         { headers },
       );
       setProfile(response.data);

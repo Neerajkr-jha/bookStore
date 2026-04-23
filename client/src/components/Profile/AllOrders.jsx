@@ -23,7 +23,7 @@ const AllOrders = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/api/order/get-all-orders",
+        "https://bookify-bwff.onrender.com/api/order/get-all-orders",
         { headers },
       );
       setAllOrders(response.data.data);

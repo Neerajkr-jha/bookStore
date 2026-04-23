@@ -19,7 +19,7 @@ const Cart = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/api/cart/get-cart",
+        "https://bookify-bwff.onrender.com/api/cart/get-cart",
         { headers },
       );
       setCart(response.data.data);
@@ -29,7 +29,7 @@ const Cart = () => {
 
   const handleDelete = async (bookid) => {
     const response = await axios.put(
-      `http://localhost:8080/api/cart/remove-from-cart/${bookid}`,
+      `https://bookify-bwff.onrender.com/api/cart/remove-from-cart/${bookid}`,
       {},
       { headers },
     );
@@ -40,7 +40,7 @@ const Cart = () => {
     try {
       if (!cart || cart.length === 0) return;
       const response = await axios.post(
-        "http://localhost:8080/api/order/place-order",
+        "https://bookify-bwff.onrender.com/api/order/place-order",
         { order: cart },
         { headers },
       );

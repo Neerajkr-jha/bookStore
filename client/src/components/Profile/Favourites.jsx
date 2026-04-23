@@ -12,7 +12,7 @@ const Favourites = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/api/favourite/get-fav",
+        "https://bookify-bwff.onrender.com/api/favourite/get-fav",
         { headers },
       );
       setFavouriteBook(response.data.data);

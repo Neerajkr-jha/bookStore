@@ -36,7 +36,7 @@ const AddBook = () => {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "http://localhost:8080/api/books/add-book",
+          "https://bookify-bwff.onrender.com/api/books/add-book",
           data,
           { headers },
         );

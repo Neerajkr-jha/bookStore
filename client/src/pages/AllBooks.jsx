@@ -11,7 +11,7 @@ const AllBooks = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/api/books/get-all-books",
+        "https://bookify-bwff.onrender.com/api/books/get-all-books",
       );
       setData(response.data.data);
     };

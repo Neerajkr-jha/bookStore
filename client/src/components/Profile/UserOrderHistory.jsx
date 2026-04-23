@@ -16,7 +16,7 @@ const UserOrderHistory = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/api/order/get-order-history",
+        "https://bookify-bwff.onrender.com/api/order/get-order-history",
         { headers },
       );
       setOrderHistory(response.data.data);

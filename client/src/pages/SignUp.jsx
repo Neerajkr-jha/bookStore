@@ -30,7 +30,7 @@ const SignUp = () => {
         toast.error("All fields are required");
       } else {
         const response = await axios.post(
-          "http://localhost:8080/api/users/sign-up",
+          "https://bookify-bwff.onrender.com/api/users/sign-up",
           Values,
         );
         toast.success(response.data.message);

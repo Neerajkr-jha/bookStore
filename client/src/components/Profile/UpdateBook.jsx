@@ -20,7 +20,7 @@ const UpdateBook = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://localhost:8080/api/books/get-book-by-id/${id}`
+        `https://bookify-bwff.onrender.com/api/books/get-book-by-id/${id}`
       );
       setData(response.data.data);
     };
