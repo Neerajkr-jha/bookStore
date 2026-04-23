@@ -20,11 +20,11 @@ const AllBooks = () => {
 
   return (
     <div
-      className={`px-12 py-8 min-h-screen
+      className={`md:px-12 px-6 py-8 min-h-screen
         ${isDark ? "bg-gray-900" : "bg-amber-50"} transition-all duration-500`}
     >
       <h1
-        className={`text-5xl font-serif italic text-left py-4 mb-6
+        className={`md:text-5xl text-3xl font-serif italic md:text-left text-center py-4 mb-6
           ${isDark ? "text-gray-200" : "text-slate-800"}`}
       >
         Explore Books

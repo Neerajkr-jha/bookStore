@@ -20,7 +20,7 @@ const RecentBooks = () => {
   }, []);
 
   return (
-    <div className="mt-8 px-2">
+    <div className="mt-8 md:px-2 px-0">
       <h4 className={`text-3xl ${isDark ? "text-gray-100" : "text-slate-800"}`}>
         Recently Added Books
       </h4>
