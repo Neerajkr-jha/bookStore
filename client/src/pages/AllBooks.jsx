@@ -36,7 +36,7 @@ const AllBooks = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-6">
         {data &&
           data.map((item, i) => (
             <div key={i}>
