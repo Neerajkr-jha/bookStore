@@ -25,8 +25,7 @@ const Footer = () => {
           className={`text-center max-w-xl text-sm font-normal leading-relaxed
             ${isDark ? "text-gray-400" : "text-slate-500"}`}
         >
-          Empowering creators worldwide with the most advanced AI content
-          creation tools. Transform your ideas into reality.
+          A smarter way to find the books you love. Read more, explore better
         </p>
       </div>
       <div
