@@ -39,7 +39,7 @@ const AllOrders = () => {
   const submitChnages = async (i) => {
     const id = allOrders[i]._id;
     const response = await axios.put(
-      `http://localhost:8080/api/order/update-status/${id}`,
+      `https://bookify-bwff.onrender.com/api/order/update-status/${id}`,
       values,
       { headers },
     );
